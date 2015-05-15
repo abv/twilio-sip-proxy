@@ -1,0 +1,14 @@
+{
+  "name": "twilio-sip-proxy",
+  "version": "0.0.1",
+  "description": "Run a SIP proxy to a Twilio SIP endpoint",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Adam Varga <me@adamvarga.com>",
+  "license": "ISC",
+  "dependencies" : {
+      "sip" : "0.0.2-42"
+  }
+}
