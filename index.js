@@ -10,7 +10,7 @@ var Proxy = function(conf){
 
     var update_request_uri = function(rq){
       var uri = sip.parseUri(rq.uri);
-      uri.host = twilio_sip_address;
+      uri.host = twilio_sip_uri;
       rq.uri = sip.stringifyUri(uri);
       return rq;
     }

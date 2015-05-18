@@ -1,6 +1,6 @@
 {
   "name": "twilio-sip-proxy",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Run a SIP proxy to a Twilio SIP endpoint",
   "repository" :
     { "type" : "git"
