@@ -3,10 +3,10 @@ var sip = require('sip'),
     digest = require('sip/digest');
 
 var Proxy = function(conf){
-    var digest_context = conf.digest_context;
-    var twilio_sip_uri = conf.sip_uri;
-    var getPassword = conf.getPassword;
-    var onCancel = conf.onCancel;
+    var digest_context = {realm: conf.digest_context}; // sauce
+    var twilio_sip_uri = conf.sip_uri; // eg. foo.sip.twilio.com
+    var getPassword = conf.getPassword; // function that returns the password for a username
+    var onCancel = conf.onCancel; // function that returns call-id on cancel
 
     var update_request_uri = function(rq){
       var uri = sip.parseUri(rq.uri);
@@ -49,7 +49,7 @@ var Proxy = function(conf){
                     if (!authenticated) {
                         var resp = sip.makeResponse(rq, 407, 'Proxy Authentication Required');
                         var challenge = digest.challenge(digest_context, resp);
-                        proxy.send(chanllenge);
+                        proxy.send(challenge);
                     } else {
                         proxy.send(rq);
                     }
